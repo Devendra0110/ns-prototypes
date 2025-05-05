@@ -4,3 +4,207 @@
 Button.-primary {
   font-size: 18;
 }
+/* Global Styles */
+.page {
+  background-color: #f4f6f9;
+  font-family: "Arial", sans-serif;
+}
+
+.action-bar {
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 18;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 16;
+  color: #333333;
+  margin-bottom: 8;
+}
+
+.input {
+  border-width: 1;
+  border-color: #cccccc;
+  border-radius: 8;
+  padding: 10;
+  background-color: #ffffff;
+  font-size: 16;
+  margin-bottom: 16;
+}
+
+.button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10;
+  border-radius: 8;
+  font-size: 16;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.form {
+  padding: 20;
+}
+
+.list-view {
+  margin: 10;
+  height: 80%;
+}
+
+.task-item {
+  background-color: #ffffff;
+  border-radius: 12;
+  margin-bottom: 10;
+  padding: 16;
+  box-shadow: 0 2 4 rgba(0, 0, 0, 0.1);
+}
+
+.task-work {
+  font-size: 18;
+  color: #007bff;
+}
+
+.task-priority, .task-date {
+  font-size: 14;
+  color: #555555;
+}
+
+.task-item:nth-child(even) {
+  background-color: #e9f5ff;
+}
+
+
+
+
+
+.chip {
+  padding: 4 10;
+  border-radius: 12;
+  font-size: 14;
+  font-weight: 600;
+  border-width: 1;
+  border-color: #000;
+  background-color: #fefae0
+}
+
+.chip.default { background-color: #333;color:white }
+
+DropDown {
+  margin: 10;
+  padding: 10;
+  background-color: #fff;
+  border-bottom-width: 1;
+  border-bottom-color: gray;
+}
+
+.ns-dark DropDown{
+  color:#000
+}
+
+.ns-dark  TextField {
+  color: #000;
+}
+
+
+
+.menu-icon {
+  background-color: transparent;
+  color: white;
+  font-size: 24;
+  width: 40;
+}
+
+
+.fab {
+  font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free', 'fa-solid-900';
+  font-weight: 900;
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free', 'fa-regular-400';
+  font-weight: 400;
+}
+
+/* Common page class */
+.page__content-icon,
+.page__content-placeholder {
+  color: grey;
+  font-size: 20;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.page__content-icon {
+  font-size: 72;
+  vertical-align: top;
+  margin-top: 20%;
+}
+
+/* Drawer navigation custom styles */
+
+
+/* dark mode */
+.ns-dark .page {
+  background-color: #f4f6f9;
+}
+
+
+.ns-dark .action-bar {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.ns-dark .label {
+  color: #333333;
+}
+
+.ns-dark Label {
+  color: #333333;
+}
+
+.ns-dark .input {
+  border-width: 1;
+  border-color: #cccccc;
+  border-radius: 8;
+  padding: 10;
+  background-color: #ffffff;
+  font-size: 16;
+  margin-bottom: 16;
+}
+
+.ns-dark .button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10;
+  border-radius: 8;
+  font-size: 16;
+  font-weight: bold;
+}
+
+
+.ns-dark .task-work {
+  font-size: 18;
+  color: #007bff;
+}
+
+.ns-dark .task-priority, .task-date {
+  font-size: 14;
+  color: #555555;
+}
+
+.ns-dark .task-item:nth-child(even) {
+  background-color: #e9f5ff;
+}
+
+.ns-dark .nt-drawer__header-brand{
+  color: #000;
+}

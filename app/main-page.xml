@@ -1,9 +1,60 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <ActionBar title="My App" icon="" />
+<Page loaded="onNavigatingTo" class="page" backgroundColor="white"
+xmlns:IQKeyboardManager="@nativescript-iqkeyboardmanager"
+>
+    <ActionBar title="Login" class="action-bar" />
 
-    <StackLayout class="p-20">
-        <Label text="Tap the button" class="h1 text-center" />
-        <Button text="TAP" tap="{{ onTap }}" class="-primary" />
-        <Label text="{{ message }}" class="h2 text-center" textWrap="true" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout verticalAlignment="center" horizontalAlignment="center" padding="24" spacing="20">
+
+            <!-- 🔷 App Logo -->
+            <!-- <Image src="~/assets/ePA-Login.png" stretch="aspectFit" height="200" width="200" horizontalAlignment="center" /> -->
+
+            <!-- 🔒 Login Card -->
+            <StackLayout class="card" padding="24" borderRadius="16" backgroundColor="lightgrey" shadowColor="#000" shadowOffsetWidth="0" shadowOffsetHeight="2" shadowOpacity="0.3" shadowRadius="4" width="90%">
+
+                <!-- 📱 Mobile Number -->
+                <Label text="Enter Mobile Number:" class="label" fontSize="16" fontWeight="bold" />
+                <TextField id="mobileField"
+                           hint="10-digit Mobile Number"
+                           keyboardType="phone"
+                           returnKeyType="done"
+                           autocorrect="false"
+                           autocapitalizationType="none"
+                           text="{{ mobileNumber }}"
+                           class="input"
+                           borderRadius="8"
+                           padding="12"
+                           backgroundColor="white" />
+
+                <!-- 🔘 Send OTP Button -->
+                <Button text="Send OTP"
+                        class="button"
+                        tap="onSendOtpTap"
+                        borderRadius="8"
+                        marginTop="12"
+                        backgroundColor="#3b82f6"
+                        color="white" />
+
+                <!-- 🔐 OTP Section -->
+                <StackLayout visibility="{{ showOtpField ? 'visible' : 'collapse' }}" spacing="12" marginTop="16">
+                    <Label text="Enter OTP:" class="label" fontSize="16" fontWeight="bold" />
+                    <TextField id="otpField"
+                               text="{{ enteredOtp }}"
+                               hint="Enter OTP"
+                               keyboardType="number"
+                               returnKeyType="done"
+                               class="input"
+                               borderRadius="8"
+                               padding="12"
+                               backgroundColor="#f1f1f1" />
+
+                    <Button text="Verify OTP"
+                            tap="onVerifyOtpTap"
+                            borderRadius="8"
+                            backgroundColor="#16a34a"
+                            color="white" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </Page>
