@@ -1,0 +1,22 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"  loaded="onLoaded" navigatedTo="onNavigatedTo">
+<Page.actionBar>
+    <ActionBar class="action-bar" >
+        <Label text="Registeration" class="title" />
+    </ActionBar>
+</Page.actionBar>
+
+<ScrollView>
+ <StackLayout class="p-20">
+    <Label text="Registeration Form" class="h2 text-2xl font-bold text-center mb-10" color="#000" />
+    <TextField hint="Site Name" text="" class="input mb-10" />
+    <TextField hint="Employer" text="" class="input mb-10" />
+    <TextField hint="Type Of Work" text="" class="input mb-10" />
+    <Button text="Select/Capture Image" tap="takeImage" fontWeight="bold"
+            class="button btn" />
+    <Image visibility="{{src.length ? 'visible' : 'collapsed'}}" src="{{src}}" stretch="fill"
+    height="300" width="300"  />
+
+  </StackLayout>
+  </ScrollView>
+
+</Page>

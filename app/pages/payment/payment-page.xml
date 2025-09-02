@@ -1,0 +1,27 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+ xmlns:ui="@nativescript/mlkit-core" loaded="onLoaded" navigatedTo="onNavigatedTo">
+<Page.actionBar>
+    <ActionBar class="action-bar" >
+        <Label text="Payment" class="title" />
+    </ActionBar>
+</Page.actionBar>
+
+<ScrollView>
+ <StackLayout class="p-20">
+    <Label text="Make Payment" class="h2 text-2xl font-bold text-center mb-10" color="#000" />
+    <ui:MLKitView
+    detectionType="barcode"
+    detection="{{ onDetection }}"
+    />
+    <Label row="6">
+        <FormattedString>
+            <Span text="Barcode: "/>
+            <Span text="{{ barcode }}" class="text-green-500"/>
+        </FormattedString>
+    </Label>
+
+
+  </StackLayout>
+  </ScrollView>
+
+</Page>

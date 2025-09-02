@@ -1,0 +1,21 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+ xmlns:ui="@nativescript/mlkit-core" loaded="onLoaded" navigatedTo="onNavigatedTo">
+<Page.actionBar>
+    <ActionBar class="action-bar" >
+        <Label text="Face Detection" class="title" />
+    </ActionBar>
+</Page.actionBar>
+
+<ScrollView>
+ <StackLayout class="p-20">
+    <Button text="Check Availibility" tap="checkBiometricAvailibility" class="button"/>
+     <FlexboxLayout flexDirection="row" alignItems="center" justifyContent="space-around" visibility="{{ isBiometric ? 'visible' : 'collapsed' }}">
+        <Button text="Touch" tap="initiateFaceAuth" class="button" isEnabled="{{isTouch}}"/>
+        <Button text="Face" tap="initiateFaceAuth" class="button" isEnabled="{{isFace}}" />
+     </FlexboxLayout>
+     <Label text="Biometric authentication not available" textWrap="true" visibility="{{ isBiometric==false ? 'visible' : 'collapsed' }}" />
+
+  </StackLayout>
+  </ScrollView>
+
+</Page>

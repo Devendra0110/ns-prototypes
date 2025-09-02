@@ -1,21 +1,14 @@
-import {
-  TextField,
-  alert,
-  ApplicationSettings,
-  Connectivity,
-  Application,
-  EventData,
-  Page
-} from "@nativescript/core";
+import {TextField,alert,ApplicationSettings,Connectivity,Application,EventData,Page, Frame } from "@nativescript/core";
+import {check as checkPermission, isPermResultAuthorized, request as requestPermission, Status} from "@nativescript-community/perms"
 
 import { createViewModel } from "./main-view-model";
-import { BASE_URL } from "./config";
+import { BASE_URL, NAVIGATION_PATHS } from "./config";
 
 
 let viewModel, connectionStatus:string,page
 
-export function onNavigatingTo(args: EventData) {
-
+export async function onNavigatingTo(args: EventData) {
+  try {
   page = <Page>args.object;
   viewModel = createViewModel();
   page.bindingContext = viewModel;
@@ -35,43 +28,32 @@ export function onNavigatingTo(args: EventData) {
   } else {
       viewModel.set("sessionExists", false);
   }
+    await checkAndRequestPermissions()
+  } catch (error) {
+
+  }
 }
 
-export function onSendOtpTap(args: EventData) {
-  const page = (<any>args.object).page as Page;
-  const phoneField = page.getViewById<TextField>("mobileField");
-  const mobile_no = phoneField?.text?.trim();
-
-  if (!mobile_no || mobile_no.length !== 10) {
-      // return alert({message:"⚠️ Enter a valid 10-digit mobile number!",theme:4, okButtonText:'OK', title:"Alert"});
-      return alert("⚠️ Enter a valid 10-digit mobile number!");
+export async function checkAndRequestPermissions() {
+  try {
+      const currentStatus = await checkPermission('location', { precise:true })
+      if(currentStatus === Status.Undetermined){
+          await requestPermission("location", {precise:true})
+          const updateStatus = await checkPermission('location', { precise:true })
+          console.log(updateStatus);
+      }
+  } catch (error) {
+  console.log(error);
   }
 
-  if(connectionStatus === 'Offline'){
-      return alert("⚠️ Please check your internet connection 🛜");
-  }
-
 }
 
-export function onVerifyOtpTap(args: EventData) {
-  const enteredOtp = viewModel.get("enteredOtp").trim();
-  const c_mobile = viewModel.get("mobileNumber").trim();
-  if(!enteredOtp){
-      alert("❌ Incorrect OTP. Try again.");
-      return;
-  }
-  const expectedOtp = ApplicationSettings.getString("expectedOtp");
 
-  const userUrl = `${BASE_URL}__master_phone-name.php?type=json&mobile=${c_mobile}`;
-  console.log("🔗 Fetching user info from:", userUrl);
-
+export function navigateToHome(){
+  Frame.topmost().navigate({
+    moduleName: NAVIGATION_PATHS.HOME_PAGE
+  })
 }
-
-export function unloaded(_:EventData){
-  Application.off(Application.suspendEvent)
-  Connectivity.stopMonitoring();
-}
-
 
 function updateStatus(connectionType:number) {
 

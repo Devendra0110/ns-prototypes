@@ -1,7 +1,12 @@
 <Page loaded="onNavigatingTo" class="page" backgroundColor="white"
 xmlns:IQKeyboardManager="@nativescript-iqkeyboardmanager"
 >
-    <ActionBar title="Login" class="action-bar" />
+    <Page.actionBar>
+        <ActionBar class="action-bar">
+            <Label text="Login" class="title" />
+
+        </ActionBar>
+    </Page.actionBar>
 
     <ScrollView>
         <StackLayout verticalAlignment="center" horizontalAlignment="center" padding="24" spacing="20">
@@ -29,7 +34,7 @@ xmlns:IQKeyboardManager="@nativescript-iqkeyboardmanager"
                 <!-- 🔘 Send OTP Button -->
                 <Button text="Send OTP"
                         class="button"
-                        tap="onSendOtpTap"
+                        tap="navigateToHome"
                         borderRadius="8"
                         marginTop="12"
                         backgroundColor="#3b82f6"

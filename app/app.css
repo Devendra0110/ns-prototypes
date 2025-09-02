@@ -17,6 +17,15 @@ Button.-primary {
   font-weight: bold;
 }
 
+.title{
+  position:"center";
+  font-size:24;
+   font-weight:bold;
+    color:#ffffff
+}
+
+
+
 .label {
   font-size: 16;
   color: #333333;

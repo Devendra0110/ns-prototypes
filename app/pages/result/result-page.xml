@@ -1,0 +1,19 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
+<Page.actionBar>
+    <ActionBar class="action-bar" >
+        <Label text="Payment Status" class="title" />
+    </ActionBar>
+</Page.actionBar>
+
+    <!-- <StackLayout  class="p-20">
+        <Label text="Payment Details" class="h1"   />
+        <Label text="{{'message :'+ message }}" class="h2 text-2xl font-bold  mb-10"/>
+        <Label text="{{ 'Transaction Id: ' +transaction_id }}" class="h2 text-2xl font-bold  mb-10" textWrap="true"/>
+        <Label text="{{ 'Payment Id : ' +payment_id }}" class="h2 text-2xl font-bold  mb-10"/>
+        <Label text="{{ 'Time :' + time }}" class="h2 text-2xl font-bold  mb-10"/>
+    </StackLayout> -->
+    <StackLayout   class="p-20">
+        <Label visibility="{{status==='success' ? 'visible' : 'collapsed' }}" text="{{ message + '🎉' }}" class="h2 text-2xl font-bold  mb-10" textWrap="true" />
+        <Label  visibility="{{status!=='success' ? 'visible' : 'collapsed' }}"  text="{{ message + '‼️' }}" class="h2 text-2xl font-bold  mb-10" textWrap="true" />
+    </StackLayout>
+</Page>

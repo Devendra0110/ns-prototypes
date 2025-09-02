@@ -1,0 +1,20 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"   navigatedTo="onNavigatedTo">
+<Page.actionBar>
+    <ActionBar class="action-bar" >
+        <Label text="Details" class="title" />
+    </ActionBar>
+</Page.actionBar>
+
+ <StackLayout  class="p-20">
+    <Label text="{{message}}" class="h2 text-2xl font-bold text-center mb-10" />
+
+    <Button visibility="{{ amount ? 'visible' : 'collapsed' }}" text="{{'Pay '+ amount}}" fontWeight="bold" tap="{{onPayTap}}" class="button btn" />
+    <WebView src="{{webviewSrc}}" height="90%" class="webview" loadStarted="{{pageLoading}}"  loadFinished="{{pageLoaded}}" />
+
+
+  </StackLayout>
+
+
+    <!-- <Webview visibility="{{ webviewSrc ? 'visible' : 'collapsed' }}"  src="{{webviewSrc}}" /> -->
+
+</Page>
