@@ -45,7 +45,7 @@ export async function initiateFaceAuth() {
   .then((result) => {
     console.log(result);
     if (result.code === ERROR_CODES.SUCCESS) {
-      console.log('Biometric ID OK')
+      alert('Biometric ID OK')
     }
   })
   .catch((err) => console.log(`Biometric ID NOT OK: ${JSON.stringify(err)}`))
